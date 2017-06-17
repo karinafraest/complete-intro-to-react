@@ -10,19 +10,21 @@ var MyTitle = React.createClass({
 			)
 		)
 	}
-})
+});
+	/*helper method that creates an element*/
+var MyTitleFactory = React.createFactory(MyTitle)
 
-	var MyFirstComponent = React.createClass({
-		render: function(){
-			return (
-				div(null,
-					React.createElement(MyTitle),
-					React.createElement(MyTitle),
-					React.createElement(MyTitle),
-					React.createElement(MyTitle)
-				)
+var MyFirstComponent = React.createClass({
+	render: function(){
+		return (
+			div(null,
+				MyTitleFactory(MyTitle),
+				MyTitleFactory(MyTitle),
+				MyTitleFactory(MyTitle),
+				MyTitleFactory(MyTitle)
 			)
-		}
-	})
+		)
+	}
+});
 
-	ReactDOM.render(React.createElement(MyFirstComponent), document.getElementById("app"))
+ReactDOM.render(React.createElement(MyFirstComponent), document.getElementById("app"))
