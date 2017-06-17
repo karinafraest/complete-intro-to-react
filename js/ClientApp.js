@@ -6,22 +6,22 @@ var MyTitle = React.createClass({
 	render: function() {
 		return(
 			div(null,
-				h1(null, "check out this component")
+				h1(null, this.props.title)
 			)
 		)
 	}
 });
-	/*helper method that creates an element*/
+	/*helper method that creates an element */
 var MyTitleFactory = React.createFactory(MyTitle)
 
 var MyFirstComponent = React.createClass({
 	render: function(){
 		return (
 			div(null,
-				MyTitleFactory(MyTitle),
-				MyTitleFactory(MyTitle),
-				MyTitleFactory(MyTitle),
-				MyTitleFactory(MyTitle)
+				MyTitleFactory({title: "props are the best"}),
+				MyTitleFactory({title: "semicolons are the worst"}),
+				MyTitleFactory({title: "its ok if you use semicolons"}),
+				MyTitleFactory({title: "i am a title as well"})
 			)
 		)
 	}
